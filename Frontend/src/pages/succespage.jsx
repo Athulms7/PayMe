@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 export function PaymentSuccess ({balance,amount,tid}){
   const today = new Date();
   const month = today.getMonth()+1;
@@ -19,10 +19,11 @@ const showTime = today.getHours() + ':' + today.getMinutes();
           </div>
         </div>
 
-        
+        <div>
         <h1 className="text-2xl font-semibold text-gray-800">Payment successful</h1>
-        <p className="text-gray-500 mt-1">Successfully paid <strong>Rs.{amount}</strong></p>
-
+        <p className="text-gray-500 mt-1">Successfully paid <strong>Rs. {amount} </strong></p>
+              <p className="text-black mt-1">Redirecting in 5 seconds <div className='text-blue-400 hover:underline  '><Link to="/dashboard">Goto HomePage</Link></div></p>
+</div>
         
         <div className="mt-6 bg-white shadow-md rounded-xl border p-5 text-left">
           <h2 className="text-md font-semibold mb-4 text-gray-700">Transaction Details</h2>

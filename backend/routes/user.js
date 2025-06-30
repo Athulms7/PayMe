@@ -73,14 +73,14 @@ userRouter.post("/signin", async (req, res) => {
   }
 });
 
-userRouter.put("/", authMiddleware, async (req, res) => {
-  const { password, firstname, lastname } = req.body;
+userRouter.put("/profile", authMiddleware, async (req, res) => {
+  const { password, firstname, lastname,username } = req.body;
 
   const user = await User.updateOne(
     { _id: req.userid },
-    { password: password, firstname: firstname, lastname: lastname }
+    { password: password, firstname: firstname, lastname: lastname,username:username }
   );
-  console.log(user);
+ 
   res.status(200).json({
     msg: "Updated succesfully",
   });
@@ -115,4 +115,18 @@ const userss=users.map(u=>({
   res.status(200).json({
     user:userss
   })
+})
+
+userRouter.get('/profile',authMiddleware,async(req,res)=>{
+ const user=await User.find({_id:req.userid});
+ if(user){
+  return res.json({
+    user:user[0]
+  })
+ }else{
+  return res.json({
+    "msg":"No user found",
+  })
+ }
+
 })

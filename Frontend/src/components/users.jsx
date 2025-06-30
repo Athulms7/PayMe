@@ -16,7 +16,7 @@ export function Users({filter}) {
     <>
       {user.map((u) => {
         return (
-          <div key={u._id} className="h-3.5">
+          <div key={u._id}>
             <Usericon username={u.username} userdata={u}></Usericon>
           </div>
         );

@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { JWTPASSWORD } from "../routes/config.js";
 export const authMiddleware=(req,res,next)=>{
     const auth=req.headers.authorization;
-    console.log(auth)
+    
     if(!auth || !auth.startsWith("Bearer ")){
         res.status(403).json({
         "msg":"Invalid token"

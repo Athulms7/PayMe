@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { NotPage } from "./pagenotfound";
 import { useSearchParams } from "react-router-dom";
-import { PaymentSuccess } from "../components/succespage";
+import { PaymentSuccess } from "./succespage";
 export function SendMoneyPage() {
   const [searchparams] = useSearchParams();
   const id = searchparams.get("id");
   const name = searchparams.get("name");
   const token = localStorage.getItem("token");
+  console.log(token);
   if (!token) {
     return (
       <div>
@@ -85,8 +86,8 @@ export function SendMoneyPage() {
   return (
     <div>
       {showPopup && <PaymentSuccess balance={balance} amount={moneysending} tid={transid}/>}
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-        <div className="w-full max-w-sm text-white bg-black p-6 m-2 rounded-xl h-120">
+      <div className="min-h-screen bg-gray-200 flex items-center justify-center px-4">
+        <div className="w-full max-w-sm text-white bg-gray-900 p-6 m-2 rounded-xl h-120">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-lg font-semibold">{user.firstname}</h2>

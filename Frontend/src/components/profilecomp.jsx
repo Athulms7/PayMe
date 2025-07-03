@@ -17,7 +17,7 @@ async function Update() {
             username:username,
           })
       const resp = await axios.put(
-        "http://localhost:3000/api/v1/user/profile",
+        "http://localhost:3001/api/v1/user/profile",
         
         {
             firstname:firstname,

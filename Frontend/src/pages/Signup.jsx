@@ -5,6 +5,7 @@ import { Heading } from "../components/heading";
 import { InputBox } from "../components/Inputbox";
 
 import axios from "axios";
+import WelcomeMessage from "./sidepage";
 
 export function Signup() {
   const [firstname, setfirstname] = useState("");
@@ -13,7 +14,8 @@ export function Signup() {
   const [password, setpassword] = useState("");
 
  async function signup() {
-    const resp=await axios.post("http://localhost:3000/api/v1/user/signup", {
+
+    const resp=await axios.post("http://localhost:3001/api/v1/user/signup", {
       username: username,
       password: password,
       lastname: lasttname,
@@ -22,12 +24,15 @@ export function Signup() {
     console.log(resp);
     if(resp.data.token){
         window.location = "/signin";
+    }else{
+      alert("Error While Signup");
     }
     
   }
 
   return (
-    <div className="flex justify-center bg-blue-100 pt-6 h-screen">
+    <div className="flex">
+    <div className="flex justify-center bg-blue-100 pt-6 w-180 h-screen">
       <div className=" center bg-white w-90 p-5 m- h-130 rounded-3xl shadow-2xl/30 ">
         <Heading
           label="SignUp"
@@ -54,7 +59,7 @@ export function Signup() {
             setusername(e.target.value);
           }}
           label={"Username"}
-          placeholder={"Username"}
+          placeholder={"xyz@example.com"}
           type={"text"}
         ></InputBox>
         <InputBox
@@ -72,6 +77,11 @@ export function Signup() {
           onclick={"/signin"}
         ></Bottomwarning>
       </div>
+      
+    </div>
+    <div>
+<WelcomeMessage/>
+    </div>
     </div>
   );
 }

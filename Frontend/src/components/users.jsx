@@ -6,7 +6,7 @@ export function Users({filter}) {
   const [user, setusers] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`).then((resp) => {
+    axios.get(`http://localhost:3001/api/v1/user/bulk?filter=${filter}`).then((resp) => {
       console.log("hel;p", resp.data.user);
       setusers(resp.data.user);
     });

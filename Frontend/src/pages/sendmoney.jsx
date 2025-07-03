@@ -27,7 +27,7 @@ export function SendMoneyPage() {
   async function b() {
     console.log(token);
     const resp = await axios.get(
-      "http://localhost:3000/api/v1/account/balance",
+      "http://localhost:3001/api/v1/account/balance",
       {
         headers: {
           authorization: token,
@@ -46,6 +46,7 @@ export function SendMoneyPage() {
 
   const handleButtonClick = () => {
     setShowPopup(true);
+    
     transferMoney();
   };
   useEffect(() => {
@@ -53,7 +54,7 @@ export function SendMoneyPage() {
     if (showPopup) {
       timer = setTimeout(() => {
         setShowPopup(false);
-      }, 3000);
+      }, 3001);
     }
     return () => {
       clearTimeout(timer);
@@ -62,7 +63,7 @@ export function SendMoneyPage() {
   async function transferMoney() {
     console.log("here tokem", token);
     const response = await axios.post(
-      "http://localhost:3000/api/v1/account/transfer",
+      "http://localhost:3001/api/v1/account/transfer",
       {
         toaccount: id,
         amount: parseFloat(moneysending),
@@ -80,6 +81,10 @@ export function SendMoneyPage() {
       setmsg(response.data.msg);
     } else {
       setmsg("Transaction Failed");
+      if(moneysending<=0){
+          setmsg("Enter Amount");
+          setShowPopup(false);
+        }
     }
   }
 
@@ -119,6 +124,7 @@ export function SendMoneyPage() {
             <input
               onChange={(e) => {
                 usemoneysend(e.target.value);
+                
               }}
               type="text"
               placeholder="Enter Amount"
@@ -126,13 +132,11 @@ export function SendMoneyPage() {
             />
           </div>
 
-          <div className="mt-4 flex items-center space-x-2">
-            <button className="w-12 h-12 rounded-full bg-[#2e2e2e] flex items-center justify-center">
-              📅
-            </button>
+          <div className="mt-4  flex justify-center  items-center ">
+            
             <button
               onClick={handleButtonClick}
-              className="flex-1 bg-white hover:bg-gray-500  text-black font-bold py-3 rounded-full cursor-pointer"
+              className="flex-1  bg-white  hover:bg-gray-500  text-black font-bold py-3 rounded-full cursor-pointer"
             >
               Transfer to {name}
             </button>

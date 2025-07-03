@@ -14,7 +14,7 @@ userRouter.post("/signup", async function (req, res) {
     const user = await User.find({ username: uservalidation.data.username });
     console.log(user);
     if (user.length > 0) {
-      return res.status(411).json({
+      return res.status(200).json({
         msg: "User already exists",
       });
     } else {
@@ -45,7 +45,7 @@ userRouter.post("/signup", async function (req, res) {
       });
     }
   } else {
-    res.status(411).json({
+    res.status(200).json({
       msg: "Invalid Data inputs provided",
     });
   }
@@ -59,7 +59,7 @@ userRouter.post("/signin", async (req, res) => {
   });
 
   if (userverified.length == 0) {
-    res.status(411).json({
+    res.status(200).json({
       msg: "invalid username or password",
     });
   } else {

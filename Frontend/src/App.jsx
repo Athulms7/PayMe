@@ -8,6 +8,7 @@ import {NotPage} from './pages/pagenotfound';
 import { SendMoneyPage } from './pages/Sendmoney';
 import { PaymentSuccess } from './pages/succespage';
 import { Profile } from './pages/profile';
+import AboutPage from './pages/about';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,7 +24,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>}></Route>
         <Route path='/success' element={<PaymentSuccess/>}></Route>
         <Route path='/profile' element={<Profile/>}></Route>
-        <Route path='/about' element={<SendMoneyPage/>}></Route>
+        <Route path='/about' element={<AboutPage/>}></Route>
         <Route path='/send' element={<SendMoneyPage/>}></Route>
 
       </Routes>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function NotPage() {
   return (
@@ -14,12 +15,12 @@ export function NotPage() {
         </div>
         <h1 className="text-2xl font-semibold text-gray-800 mt-4">Sorry, we can’t find that page</h1>
         <p className="text-gray-500 mt-2">Oops! The page you are looking for does not exist. It might have been moved or deleted.</p>
-        <a
-          href="/"
+        <Link
+          to="/"
           className="inline-block mt-6 text-blue-600 hover:underline transition"
         >
           Go Back to Home →
-        </a>
+        </Link>
       </div>
     </div>
   );

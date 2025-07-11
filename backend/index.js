@@ -12,3 +12,8 @@ app.listen(3001, () => {
 
 
 
+app.get("/health",(req,res)=>{
+    res.status(200).json({
+        "msg":"Server OKKK...."
+    })
+})

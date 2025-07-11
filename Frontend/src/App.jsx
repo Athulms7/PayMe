@@ -5,7 +5,7 @@ import {Signup} from "./pages/Signup";
 import { Signin } from './pages/Signin';
 import { Dashboard } from './pages/Dashboard';
 import {NotPage} from './pages/pagenotfound';
-import { SendMoneyPage } from './pages/Sendmoney';
+import { SendMoneyPage } from './pages/sendmoney';
 import { PaymentSuccess } from './pages/succespage';
 import { Profile } from './pages/profile';
 import AboutPage from './pages/about';

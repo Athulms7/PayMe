@@ -27,7 +27,7 @@ export function SendMoneyPage() {
   async function b() {
     console.log(token);
     const resp = await axios.get(
-      "http://localhost:3001/api/v1/account/balance",
+      "https://payme-o24i.onrender.com/api/v1/account/balance",
       {
         headers: {
           authorization: token,
@@ -63,7 +63,7 @@ export function SendMoneyPage() {
   async function transferMoney() {
     console.log("here tokem", token);
     const response = await axios.post(
-      "http://localhost:3001/api/v1/account/transfer",
+      "https://payme-o24i.onrender.com/api/v1/account/transfer",
       {
         toaccount: id,
         amount: parseFloat(moneysending),

@@ -15,7 +15,7 @@ export function Signup() {
 
  async function signup() {
 
-    const resp=await axios.post("http://localhost:3001/api/v1/user/signup", {
+    const resp=await axios.post("https://payme-o24i.onrender.com/api/v1/user/signup", {
       username: username,
       password: password,
       lastname: lasttname,

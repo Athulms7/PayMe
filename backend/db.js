@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
-import { number } from "zod/v4";
-mongoose.connect("mongodb+srv://athulswapnakood8:JxXm2HZsAN15dTht@cluster1.mzjls2d.mongodb.net/paytm").then(()=>{
+import dotenv from "dotenv";
+
+dotenv.config();
+const databaseurl=process.env.MONGODB_URI
+
+mongoose.connect(databaseurl).then(()=>{
     console.log("Connected to MongoDB")
 }).catch((err)=>{
     console.log("Could not connect to MongoDB...",err)

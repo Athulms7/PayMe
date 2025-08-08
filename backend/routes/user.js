@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { userregschema } from "../zod.js";
 import { Account, User } from "../db.js";
-import jwt, { decode } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { JWTPASSWORD } from "./config.js";
 import { authMiddleware } from "../middlewares/auth.js";
 
